@@ -1,5 +1,6 @@
 import db from '@/db';
 import {RowDataPacket} from 'mysql2/promise';
+import React from 'react';
 export default async function SearchResult({
   params,
 }: {
@@ -15,7 +16,11 @@ export default async function SearchResult({
       {results.length === 0 && <p>검색 결과가 없습니다.</p>}
       {results && results.length > 0 && results.map((e,i)=>{
         return (
-          <p key={i}>{e.title}</p>
+          <React.Fragment key={i}>
+            <p>{e.title}</p>
+            <p>{e.userid}</p>
+
+          </React.Fragment>
         )
       })}
 
