@@ -81,7 +81,7 @@ export default async function PostsList({
       Array(endPage - startPage + 1).fill(null).map((_,i)=>{
         const pageNumber = i + startPage;
         return(
-          <Link href={`/page/${pageNumber}`} key={pageNumber} className={`${Number(currentPage) === pageNumber ? 'bg-orange-500 text-white' : 'bg-white text-black'} border px-1.5 py-1 text-center rounded text-sm basis-8`}>{pageNumber}</Link>
+          <Link href={`/page/${pageNumber}`} key={i} className={`${Number(currentPage) === pageNumber ? 'bg-orange-500 text-white' : 'bg-white text-black'} border px-1.5 py-1 text-center rounded text-sm basis-8`}>{pageNumber}</Link>
         )
       })
     }
