@@ -1,14 +1,18 @@
 'use client';
 import { useCustomSession } from "../sessions";
 import Link from 'next/link';
-interface propsType{
-  results : {
-    id : number
-    userid: string
-  }
+interface propsType {
+  results: {
+    id: number;
+    userid: string;
+    title?: string;
+    content?: string;
+    username?: string;
+    count?: number;
+    date?: string;
+  };
 }
-
-export default function EditDelete({results}:propsType){
+export default function EditDelete({ results }: propsType) {
   const {data: session } = useCustomSession();
   return (
     <>
