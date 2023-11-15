@@ -21,14 +21,14 @@ export default async function PostsList({
 }) {
 
     const currentPage = params?.page !== undefined ? params.page : 1;
-    const perPage = 1;
+    const perPage = 5;
     const offset = (currentPage - 1) * perPage;
 
     const [results] = await db.query<RowDataPacket[]>('SELECT * FROM parknamju.board order by date DESC limit ? offset ?', [perPage, offset]);
     const [countResult] = await db.query<RowDataPacket[]>('select count(*) as cnt from parknamju.board');
     const totalCnt = countResult[0].cnt;
     
-    const lastPage = Math.ceil(totalCnt / 1);
+    const lastPage = Math.ceil(totalCnt / 5);
     const totalPageCnt = 5;
     const startPage = Math.floor((currentPage - 1) / totalPageCnt) * totalPageCnt + 1;
     const endPage = Math.min(lastPage, startPage + totalPageCnt - 1);
