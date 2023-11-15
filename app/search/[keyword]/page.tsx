@@ -15,7 +15,7 @@ export default async function SearchResult({
       {results.length === 0 && <p>검색 결과가 없습니다.</p>}
       {results && results.length > 0 && results.map((e,i)=>{
         return (
-          <p>{e.title}</p>
+          <p key={i}>{e.title}</p>
         )
       })}
 

@@ -54,7 +54,7 @@ export default function Comment(props: CommentProps){
     username: session?.user?.name ?? '',
     content: ''
     })
-  },[session?.user.name, session?.user.email])
+  },[session?.user.name, session?.user.email, id])
   const [totalComment, setTotalComment] = useState<CommentType[]>();
 
   const commentValue = (e: React.ChangeEvent<HTMLInputElement>) =>{
