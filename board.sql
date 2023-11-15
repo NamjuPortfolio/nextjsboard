@@ -1,0 +1,8 @@
+CREATE TABLE `parknamju`.`board` (
+  `id` INT(11) NOT NULL,
+  `title` VARCHAR(255) NOT NULL,
+  `content` TEXT NOT NULL,
+  `anthor` VARCHAR(45) NOT NULL,
+  `count` INT(50) NOT NULL DEFAULT 1,
+  `date` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`));
