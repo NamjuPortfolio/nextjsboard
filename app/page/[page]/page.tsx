@@ -48,12 +48,13 @@ export default async function PostsList({
         </div>
         <div className="bg-white shadow-md rounded-lg">
           <div className="min-w-full">
-            <ul className="bg-gray-100 flex justify-between">
-              <li className="px-6 basis-2/12 py-3 text-center">번호</li>
-              <li className="px-6 basis-6/12 py-3 text-center">제목</li>
-              <li className="px-6 basis-2/12 py-3 text-center">작성자</li>
-              <li className="px-6 basis-2/12 py-3 text-center">작성일</li>
-            </ul>
+          <ul className="flex justify-between border-t-indigo-500 border-t-2 py-2 bg-indigo-50 text-center text-xs sm:text-sm">
+          <li className="basis-1/12">번호</li>
+          <li className="basis-5/12">제목</li>
+          <li className="basis-3/12">글쓴이</li>
+          <li className="basis-2/12">날짜</li>
+          <li className="basis-1/12">조회수</li>
+        </ul>
             {
               results && results.map((e,i)=>{
                 const date = new Date(e.date);
@@ -64,10 +65,11 @@ export default async function PostsList({
                 const itemNumber = totalCnt - ((currentPage - 1) * perPage + i);
                 return(
                   <ul key={i} className='flex justify-between'>
-                    <li className='px-6 basis-2/12 py-3 text-center'>{itemNumber}</li>
-                    <li className='px-6 basis-6/12 py-3 text-center'><Link href={`/post/${e.id}`}>{e.title}</Link></li>
-                    <li className='px-6 basis-2/12 py-3 text-center'>{e.author}</li>
+                    <li className='px-6 basis-1/12 py-3 text-center'>{itemNumber}</li>
+                    <li className='px-6 basis-5/12 py-3 text-center'><Link href={`/post/${e.id}`}>{e.title}</Link></li>
+                    <li className='px-6 basis-3/12 py-3 text-center'>{e.username}</li>
                     <li className='px-6 basis-2/12 py-3 text-center'>{formatDate}</li>
+                    <li className='px-6 basis-1/12 py-3 text-center'>{e.count}</li>
                   </ul>
                 )
               })
